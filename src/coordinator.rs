@@ -15,8 +15,17 @@
 //! 8. Each participant then can trade per-index secret shares and possession proofs with each other
 //! 9. Each participant sends its computed aggregate pubkey to the coordinator
 //! 10. The coordinator makes sure they all match, broadcasts that key generation is complete
+//!
+//! The Signing workflow has a few steps:
+//! 1. A participant sends a message and a timestamp to the coordinator's qurorum-specific pubkey
+//! 2. The coordinator assembles the event, sends the hash, message, and timestamp to each participant
+//! 3. Each participant who wants to participate sends their nonce commitments to the coordinator
+//! 4. The coordinator sends the nonce commitments and indecies to each participating participant
+//! 5. Each participant sends a signature share to the coordinator
+//! 6. The coordinator aggregates all the signature shares and sends the final signature and a status code to the participants
+//! 7. The coordinator broadcasts the message.
+
 pub(crate) struct Coordinator {
 
 }
-
 
