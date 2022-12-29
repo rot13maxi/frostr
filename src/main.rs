@@ -4,6 +4,9 @@
 // If you're interested in FROST I would highly recommend reading:
 // https://docs.rs/schnorr_fun/latest/schnorr_fun/frost/index.html
 
+mod coordinator;
+mod participant;
+
 use std::{collections::BTreeMap, io::Write};
 
 use rand::RngCore;
@@ -14,8 +17,8 @@ use schnorr_fun::{
         marker::{EvenY, NonZero, Public, Secret, Zero},
         Point, Scalar,
     },
-    musig::Nonce,
-    Message, Signature,
+    Message,
+    musig::Nonce, Signature,
 };
 use serde::{Deserialize, Serialize};
 use serde_json::json;
